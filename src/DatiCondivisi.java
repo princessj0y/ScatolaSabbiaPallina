@@ -13,19 +13,68 @@ public class DatiCondivisi {
 
     private float inclinazioneX;
 
-    public Main getMain() {
+    public DatiCondivisi(Main main, int vaschePerRiga, int vaschePerColonna) {
+        this.main = main;
+
+        pallina = new Pallina();
+
+        larghezzaScatola = (largezzaSchermo - 10 - 10) / vaschePerColonna;
+        lunghezzaScatola = (altezzaSchermo - 10 - 10) / vaschePerRiga;
+        inclinazioneX = 0;
+
+        int x = 10, y = 10;
+        this.scatole = new Scatola[vaschePerRiga][vaschePerColonna];
+        for(int i = 0; i < vaschePerRiga; i++) {
+            x = 10;
+            for(int j = 0; j < vaschePerColonna; j++) {
+                this.scatole[i][j] = new Scatola(x, y, this);
+                x += largezzaSchermo;
+            }
+            y += lunghezzaScatola;
+        }
+    }
+
+    public synchronized Main getMain() {
         return main;
     }
 
-    public int getLunghezzaScatola() {
+    public synchronized Scatola[][] getScatole() {
+        return scatole;
+    }
+
+    public synchronized Pallina getPallina() {
+        return pallina;
+    }
+
+    public synchronized int getLargezzaSchermo() {
+        return largezzaSchermo;
+    }
+
+    public synchronized int getAltezzaSchermo() {
+        return altezzaSchermo;
+    }
+
+    public synchronized int getLunghezzaScatola() {
         return lunghezzaScatola;
     }
 
-    public int getLarghezzaScatola() {
+    public synchronized int getLarghezzaScatola() {
         return larghezzaScatola;
     }
 
-    public float getInclinazioneX() {
+    public synchronized float getInclinazioneX() {
         return inclinazioneX;
+    }
+
+    public synchronized void setLargezzaSchermo(int largezzaSchermo) {
+        this.largezzaSchermo = largezzaSchermo;
+    }
+
+    public synchronized void setAltezzaSchermo(int altezzaSchermo) {
+        this.altezzaSchermo = altezzaSchermo;
+    }
+
+    public synchronized void setInclinazioneX(float inclinazioneX) {
+        this.inclinazioneX = inclinazioneX;
     }
 }
