@@ -4,15 +4,16 @@ public class Sabbia {
     private int x;
     private int y;
 
-    private int lunghezza;
-    private int larghezza;
-
     private int altezzaBordi;
 
     private int livelloSabbiaSx;
     private int livelloSabbiaDx;
 
-    private void aggiorna() {
+    public Sabbia(int volume) {
+
+    }
+
+    public void aggiorna() {
 
     }
 }
