@@ -1,0 +1,85 @@
+@startuml
+
+title Scatole con sabbia e pallina
+
+PApplet <|-- Main
+
+class Main {
+    -DatiCondivisi datiCondivisi
+
+    +void settings()
+    +void setup()
+    +void draw()
+}
+
+Main -- DatiCondivisi
+
+class DatiCondivisi {
+    -Scatola[][] scatole
+    -Pallina pallina
+
+    -int largezzaSchermo
+    -int altezzaSchermo
+
+    -float inclinazioneX
+}
+
+DatiCondivisi"1" --o "0...*"Scatola: contiene >
+
+class Scatola {
+  -Sabbia sabbia
+
+  +void aggiornaSabbia()
+  +void visualizzaScatola()
+}
+
+Scatola -- ThScatola
+
+class ThScatola {
+    -Scatola scatola
+    -DatiCondivisi datiCondivisi
+
+    +void run()
+}
+
+Scatola -- Sabbia
+
+class Sabbia {
+    -int volume
+
+    -int x
+    -int y
+
+    -int lunghezza
+    -int larghezza
+
+    -int altezzaBordi
+
+    -int livelloSabbiaSx
+    -int livelloSabbiaDx
+
+    +void aggiorna()
+}
+
+DatiCondivisi -- Pallina
+
+class Pallina {
+  -int x
+  -int y
+  -int raggio
+
+  -int velocitaX
+  -int velocitaY
+
+  +void aggiornaPallina()
+  +void simulazioneMovimento()
+  +void disegnaPallina()
+}
+
+Main -- ThLeggiInclinazione
+
+class ThLeggiInclinazione {
+  +void run();
+}
+
+@enduml
