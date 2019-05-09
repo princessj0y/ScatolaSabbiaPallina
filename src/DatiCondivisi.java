@@ -13,10 +13,13 @@ public class DatiCondivisi {
 
     private float inclinazioneX;
 
-    public DatiCondivisi(Main main, int vaschePerRiga, int vaschePerColonna) {
+    public DatiCondivisi(Main main, int largezzaSchermo, int altezzaSchermo, int vaschePerRiga, int vaschePerColonna) {
         this.main = main;
 
         pallina = new Pallina();
+
+        this.largezzaSchermo = largezzaSchermo;
+        this.altezzaSchermo = altezzaSchermo;
 
         larghezzaScatola = (largezzaSchermo - 10 - 10) / vaschePerColonna;
         lunghezzaScatola = (altezzaSchermo - 10 - 10) / vaschePerRiga;
@@ -27,8 +30,15 @@ public class DatiCondivisi {
         for(int i = 0; i < vaschePerRiga; i++) {
             x = 10;
             for(int j = 0; j < vaschePerColonna; j++) {
-                this.scatole[i][j] = new Scatola(x, y, this);
-                x += largezzaSchermo;
+
+                int volumeSabbia;
+                if(j == 0)
+                    volumeSabbia = 100;
+                else
+                    volumeSabbia = 0;
+
+                this.scatole[i][j] = new Scatola(x, y, this, volumeSabbia);
+                x += larghezzaScatola;
             }
             y += lunghezzaScatola;
         }

@@ -31,7 +31,7 @@ public class Sabbia {
             reversed = true;
         }
 
-        final float area = volume / datiCondivisi.getLarghezzaScatola();
+        final float area = (float)volume / datiCondivisi.getLunghezzaScatola();
 
         float alpha = 90F;
         float gamma = inclinazione;
@@ -44,13 +44,13 @@ public class Sabbia {
         float a = (float) Math.sqrt((2 * area * Math.sin(alpha)) / (Math.sin(beta) * Math.sin(gamma)));
 
         if(!reversed) {
-            livelloSabbiaSx = (int) Math.min(datiCondivisi.getLunghezzaScatola(), a * Math.sin(beta));
+            livelloSabbiaSx = (int) Math.min(datiCondivisi.getLarghezzaScatola(), a * Math.sin(beta));
             livelloSabbiaDx = (int) Math.min(altezzaBordi, a * Math.sin(gamma));
 
-            inizioSabbia = datiCondivisi.getLunghezzaScatola() - livelloSabbiaSx;
+            inizioSabbia = datiCondivisi.getLarghezzaScatola() - livelloSabbiaSx;
             fineSabbia = livelloSabbiaSx;
         } else {
-            livelloSabbiaDx = (int) Math.min(datiCondivisi.getLunghezzaScatola(), a * Math.sin(beta));
+            livelloSabbiaDx = (int) Math.min(datiCondivisi.getLarghezzaScatola(), a * Math.sin(beta));
             livelloSabbiaSx = (int) Math.min(altezzaBordi, a * Math.sin(gamma));
 
             x = 0;
