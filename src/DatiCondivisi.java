@@ -24,4 +24,8 @@ public class DatiCondivisi {
     public int getLarghezzaScatola() {
         return larghezzaScatola;
     }
+
+    public float getInclinazioneX() {
+        return inclinazioneX;
+    }
 }
