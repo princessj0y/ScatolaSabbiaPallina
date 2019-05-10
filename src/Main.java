@@ -9,6 +9,7 @@ public class Main extends PApplet {
 
     public static void main(String[] args) {
         PApplet.main(Main.class);
+
     }
     /*
     Inizializzo le dimensioni del canvas.
@@ -17,6 +18,8 @@ public class Main extends PApplet {
     public void settings() {
         size(700, 500);
         datiCondivisi = new DatiCondivisi(this, 700, 500, 2, 2);
+       SwingGui swingGui = new SwingGui(datiCondivisi);
+        swingGui.show();
     }
 
     public void setup() {
@@ -35,9 +38,7 @@ public class Main extends PApplet {
                 scatole[i][j].visualizzaScatola();
             }
         }
-        
-        //scatole[0][0].visualizzaScatola();
-        //scatole[0][1].visualizzaScatola();
         datiCondivisi.getPallina().disegnaPallina();
+        
     }
 }

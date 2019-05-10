@@ -15,7 +15,7 @@ public class DatiCondivisi {
 
     public DatiCondivisi(Main main, int largezzaSchermo, int altezzaSchermo, int vaschePerRiga, int vaschePerColonna) {
         this.main = main;
-
+        inclinazioneX=0;
         pallina = new Pallina();
 
         this.largezzaSchermo = largezzaSchermo;
@@ -87,5 +87,13 @@ public class DatiCondivisi {
 
     public synchronized void setInclinazioneX(float inclinazioneX) {
         this.inclinazioneX = inclinazioneX;
+    }
+
+    void incInclinazione() {
+       inclinazioneX++;
+    }
+
+    void decInclinazione() {
+         inclinazioneX--;
     }
 }
