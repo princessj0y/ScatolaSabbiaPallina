@@ -10,7 +10,10 @@ public class Main extends PApplet {
     public static void main(String[] args) {
         PApplet.main(Main.class);
     }
-
+    /*
+    Inizializzo le dimensioni del canvas.
+    Inizializzo il numero di scatole (modifico nell'inizializzazione dei DatiCondivisi)
+    */
     public void settings() {
         size(700, 500);
         datiCondivisi = new DatiCondivisi(this, 700, 500, 2, 2);
@@ -27,10 +30,14 @@ public class Main extends PApplet {
         background(0, 0, 0);
 
         Scatola[][] scatole = datiCondivisi.getScatole();
-        for(int i = 0; i < scatole.length; i++)
-            for(int j = 0; j < scatole[i].length; j++)
+        for(int i = 0; i < scatole.length; i++) {
+            for(int j = 0; j < scatole[i].length; j++) {
                 scatole[i][j].visualizzaScatola();
-
+            }
+        }
+        
+        //scatole[0][0].visualizzaScatola();
+        //scatole[0][1].visualizzaScatola();
         datiCondivisi.getPallina().disegnaPallina();
     }
 }

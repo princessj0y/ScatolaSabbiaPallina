@@ -32,12 +32,13 @@ public class DatiCondivisi {
             for(int j = 0; j < vaschePerColonna; j++) {
 
                 int volumeSabbia;
-                if(j == 0)
+                if(j == 0 && i == 0) {
                     volumeSabbia = 100;
+                  
+                }
                 else
-                    volumeSabbia = 0;
-
-                this.scatole[i][j] = new Scatola(x, y, this, volumeSabbia);
+                    volumeSabbia = 0;             
+                  this.scatole[i][j] = new Scatola(x, y, this, volumeSabbia);
                 x += larghezzaScatola;
             }
             y += lunghezzaScatola;
