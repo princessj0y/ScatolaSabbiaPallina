@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class SwingGui {
        private JFrame frame;
       
-       public SwingGui(DatiCondivisi datiCondivisi) {
+       public SwingGui(DatiCondivisi datiCondivisi /*, Scatola scatola*/) {
         frame = new JFrame("Controls");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -25,6 +25,7 @@ public class SwingGui {
             @Override
             public void actionPerformed(ActionEvent e) {
                datiCondivisi.incInclinazione();
+               //scatola.aggiornaSabbia();
             }
         });
         
@@ -35,6 +36,7 @@ public class SwingGui {
             @Override
             public void actionPerformed(ActionEvent e) {
                datiCondivisi.decInclinazione();
+               //scatola.aggiornaSabbia();
             }
         });
 

@@ -6,6 +6,7 @@ import java.awt.*;
 public class Main extends PApplet {
 
     private DatiCondivisi datiCondivisi;
+    //private Scatola scatola;
 
     public static void main(String[] args) {
         PApplet.main(Main.class);
@@ -18,7 +19,8 @@ public class Main extends PApplet {
     public void settings() {
         size(700, 500);
         datiCondivisi = new DatiCondivisi(this, 700, 500, 2, 2);
-       SwingGui swingGui = new SwingGui(datiCondivisi);
+        
+        SwingGui swingGui = new SwingGui(datiCondivisi/*, scatola*/);
         swingGui.show();
     }
 
